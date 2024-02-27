@@ -1,0 +1,26 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Bootcamp Project to create a html page that displays a software engineering team",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoHallassou/Team-Profile-Generator.git"
+  },
+  "author": "Lowell Hallassou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoHallassou/Team-Profile-Generator/issues"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "homepage": "https://github.com/LoHallassou/Team-Profile-Generator#readme"
+  
+}
