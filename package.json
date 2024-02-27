@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "jest"
+    "test": "module"
   },
   "repository": {
     "type": "git",
@@ -18,11 +18,7 @@
   "bugs": {
     "url": "https://github.com/LoHallassou/Team-Profile-Generator/issues"
   },
-  "devDependencies": {
-    "jest": "^24.9.0"
-  },
-  "homepage": "https://github.com/LoHallassou/Team-Profile-Generator#readme",
   "dependencies": {
-    "inquirer": "^9.2.15"
+    "inquirer": "^6.5.2"
   }
 }
