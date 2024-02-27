@@ -64,15 +64,14 @@ function makeTeam() {
             case "Engineer":
                 addEngineer();
                 break;
-              case "Intern":
+            case "Intern":
                 addIntern();
-                break;
-                
+                break;    
             default:
                 htmlPage();
+                break;
         }
     })
-    makeTeam();
 }
 
 
@@ -148,7 +147,7 @@ function addIntern() {
 
 function htmlPage () {
     console.log ("All done!");
-    fs.writeFileSync('page-pageTemplate.js', generateTeam(members), (err) => {
+    fs.writeFileSync(outputPath, generateTeam(members), (err) => {
         console.log(err);
     })
 }
