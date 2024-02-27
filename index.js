@@ -11,8 +11,10 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
 
-
+let members = [];
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
+
+function runApp() {
 
 function manager() {
     inquirer
@@ -41,10 +43,13 @@ function manager() {
     ] )
     .then((info) => {
         const manager = new Manager (info.managerName, info.managerID, info.managerEmail, info.managerOffice)
-
+        members.push(manager);
+        makeTeam();
     })
 
 }
+
+manager();
 
 function makeTeam() {
     inquirer
@@ -67,7 +72,9 @@ function makeTeam() {
                 htmlPage();
         }
     })
+    makeTeam();
 }
+
 
 function addEngineer() {
     inquirer.prompt([
@@ -98,9 +105,10 @@ function addEngineer() {
 
     ]).then(info => {
       const engineer = new Engineer(info.engineerName, info.engineerId, info.engineerEmail, info.engineerGithub);
+        members.push(engineer);
+        makeTeam();
     })
 
-    makeTeam();
 }
 
 
@@ -132,8 +140,19 @@ function addIntern() {
       }
 
     ]).then(info => {
-      const intern = new Intern(info.internName, info.internId, info.internEmail, info.internSchool);})
+      const intern = new Intern(info.internName, info.internId, info.internEmail, info.internSchool);
+      members.push(intern);
+      makeTeam();
+    })
 }
 
-manager();
-makeTeam();
+function htmlPage () {
+    console.log ("All done!");
+    fs.writeFileSync('page-pageTemplate.js', generateTeam(members), (err) => {
+        console.log(err);
+    })
+}
+
+}
+
+runApp();
