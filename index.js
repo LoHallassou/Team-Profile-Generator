@@ -68,4 +68,72 @@ function makeTeam() {
         }
     })
 }
+
+function addEngineer() {
+    inquirer.prompt([
+      
+      {
+        type: "input",
+        name: "engineerName",
+        message: "What is the engineer's name?: "
+      },
+
+      {
+        type: "input",
+        name: "engineerId",
+        message: "What is the engineer's employee ID number?: " 
+      },
+
+      {
+        type: "input",
+        name: "engineerEmail",
+        message: "What is the engineer's email address?: "
+      },
+
+      {
+        type: "input",
+        name: "engineerGithub",
+        message: "What is the engineer's GitHub username?: "
+      }
+
+    ]).then(info => {
+      const engineer = new Engineer(info.engineerName, info.engineerId, info.engineerEmail, info.engineerGithub);
+    })
+
+    makeTeam();
+}
+
+
+function addIntern() {
+    inquirer.prompt([
+      
+      {
+        type: "input",
+        name: "internName",
+        message: "What is the intern's name?: "
+      },
+
+      {
+        type: "input",
+        name: "internId",
+        message: "What is the intern's employee ID number?: " 
+      },
+
+      {
+        type: "input",
+        name: "internEmail",
+        message: "What is the intern's email address?: "
+      },
+
+      {
+        type: "input",
+        name: "internSchool",
+        message: "What school does the intern attend?: "
+      }
+
+    ]).then(info => {
+      const intern = new Intern(info.internName, info.internId, info.internEmail, info.internSchool);})
+}
+
 manager();
+makeTeam();
