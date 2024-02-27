@@ -21,6 +21,8 @@
   "devDependencies": {
     "jest": "^24.9.0"
   },
-  "homepage": "https://github.com/LoHallassou/Team-Profile-Generator#readme"
-  
+  "homepage": "https://github.com/LoHallassou/Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^9.2.15"
+  }
 }
