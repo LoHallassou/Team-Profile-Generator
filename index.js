@@ -1,7 +1,8 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const inquirer = import("inquirer");
+
+const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
@@ -13,12 +14,13 @@ const render = require("./src/page-template.js");
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
-function init() {
-    inquirer.prompt([
+function manager() {
+    inquirer
+  .prompt([
         {
             type: 'input',
             name: 'managerName',
-            message: 'What is your name as the managr?: '
+            message: 'What is your name as the manager?: '
         },
         {
             type: 'input',
@@ -35,13 +37,35 @@ function init() {
             name: 'managerOffice',
             message: 'What is your office numnber?: '
         },
-        {
-            type: 'list',
-            name: 'menu',
-            message: 'What would you like to do?',
-            choices: ['Add an engineer','Add an intern','Finish building team'],
-        }
-    ]
+    
+    ] )
+    .then((info) => {
+        const manager = new Manager (info.managerName, info.managerID, info.managerEmail, info.managerOffice)
 
-    )
+    })
+
 }
+
+function makeTeam() {
+    inquirer
+    .prompt([{
+        type: "list",
+        message: "What kind of employee would you like to employ?: ",
+        name: "addEmployee",
+        choices: ["Engineer", "Intern", "Done!"]
+    }
+    ]).then(function (choice) {
+        switch (choice.addEmployee) {
+            case "Engineer":
+                addEngineer();
+                break;
+              case "Intern":
+                addIntern();
+                break;
+                
+            default:
+                htmlPage();
+        }
+    })
+}
+manager();
