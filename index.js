@@ -147,7 +147,7 @@ function addIntern() {
 
 function htmlPage () {
     console.log ("All done!");
-    fs.writeFileSync(outputPath, generateTeam(members), (err) => {
+    fs.writeFileSync(outputPath, render(members), (err) => {
         console.log(err);
     })
 }

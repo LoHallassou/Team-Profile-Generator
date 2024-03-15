@@ -19,6 +19,7 @@
     "url": "https://github.com/LoHallassou/Team-Profile-Generator/issues"
   },
   "dependencies": {
-    "inquirer": "^6.5.2"
+    "inquirer": "^6.5.2",
+    "jest": "^29.7.0"
   }
 }
